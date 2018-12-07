@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="TestGenerator.PatternManagerUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestGenerator"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="458.543">
+	<StackPanel Orientation="Vertical" Margin="10,0">
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<Label>Name</Label>
+			<TextBox Width="171" Name="tbName"></TextBox>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<Label>Header template</Label>
+			<TextBox Width="181" Name="tbHeaderTemplate"></TextBox>
+			<Button Name="btnBrowseHeaderTemplate" Content="Browse" Margin="5,0" Click="btnBrowseHeaderTemplate_Click"></Button>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<Label>Footer template</Label>
+			<TextBox Width="181" Name="tbFooterTemplate"></TextBox>
+			<Button Name="btnBrowseFooterTemplate" Content="Browse" Margin="5,0" Click="btnBrowseFooterTemplate_Click"></Button>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<Label>Points</Label>
+			<TextBox Width="80" Name="tbPoints"></TextBox>
+		</StackPanel>
+		<StackPanel Name="spQuestionTypes" Orientation="Horizontal">
+
+		</StackPanel>
+
+	</StackPanel>
+</UserControl>

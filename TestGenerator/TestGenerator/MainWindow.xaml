@@ -1,0 +1,23 @@
+﻿<Window x:Class="TestGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestGenerator"
+		xmlns:viewmodel="clr-namespace:TestGenerator.viewmodel"
+        mc:Ignorable="d"
+        Title="Test Generator" Height="123.856" Width="323.693">
+	<Window.DataContext>
+		<viewmodel:MainWindowViewModel />
+	</Window.DataContext>
+	<StackPanel Orientation="Vertical">
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<Button x:Name="btnNewPattern" Content="New test pattern" Click="btnNewPattern_Click" Margin="5,0" Height="27" Width="105"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,5">
+			<ComboBox Name="cbTestPatterns" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding AllPatterns}" Width="155"></ComboBox>
+			<Button Name="btnGenerateTest" Content="Generate" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="70" Click="btnGenerateTest_Click"></Button>
+		</StackPanel>
+
+	</StackPanel>
+</Window>

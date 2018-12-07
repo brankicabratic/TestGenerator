@@ -1,0 +1,24 @@
+﻿<Window x:Class="TestGenerator.NewPatternWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestGenerator"
+        mc:Ignorable="d"
+        Title="New Test Pattern" Height="348.179" Width="638.936">
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<StackPanel Margin="10,0">
+			<Label Name="lblError" Foreground="Red"></Label>
+			<StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Left">
+				<Label>Questions path</Label>
+				<TextBox Name="txtboxQuestionsPath" Width="330" />
+				<Button x:Name="btnBrowse" Content="Browse" Width="75" Margin="5,0" Click="btnBrowse_Click"/>
+				<Button x:Name="btnLoad" Content="Load" Width="75" Margin="5,0" Click="btnLoad_Click"/>
+			</StackPanel>
+			<StackPanel Name="spContainer"></StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+				<Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Width="83" Height="23" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			</StackPanel>
+		</StackPanel>
+	</ScrollViewer>
+</Window>
