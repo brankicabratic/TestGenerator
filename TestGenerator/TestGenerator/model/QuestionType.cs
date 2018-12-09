@@ -80,6 +80,17 @@ namespace TestGenerator.model
 			return "This question type does not have any questions.";
 		}
 
+		public void OnDeserialized(QuestionPool pool)
+		{
+			Questions = pool.GetQuestions(this);
+			foreach (Question question in Questions)
+			{
+				Question q = pool.GetQuestion(question.Type.Id, question.Id);
+				question.Path = q.Path;
+				question.Type = this;
+			}
+		}
+
 		public override int GetHashCode()
 		{
 			return Id.GetHashCode();

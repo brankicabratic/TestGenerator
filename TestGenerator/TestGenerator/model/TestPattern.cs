@@ -46,7 +46,7 @@ namespace TestGenerator.model
 			QuestionPool pool = new QuestionPool(QuestionsPath);
 			foreach (QuestionType questionType in QuestionTypes)
 			{
-				questionType.SetQuestions(pool.GetQuestions(questionType));
+				questionType.OnDeserialized(pool);
 			}
 			History.OnDeserialized(pool);
 		}
@@ -71,6 +71,7 @@ namespace TestGenerator.model
 					if (rndDbl < cumulativeProbability)
 					{
 						type = questionTypes[i];
+						break;
 					}
 					i++;
 				}

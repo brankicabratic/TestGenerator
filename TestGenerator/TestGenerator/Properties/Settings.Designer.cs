@@ -31,5 +31,32 @@ namespace TestGenerator.Properties {
                 return ((string)(this["TestPatternsPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[#]")]
+        public string QuestionNumberToken {
+            get {
+                return ((string)(this["QuestionNumberToken"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[POINTS]")]
+        public string QuestionPointsToken {
+            get {
+                return ((string)(this["QuestionPointsToken"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[YEAR]")]
+        public string HeaderYearToken {
+            get {
+                return ((string)(this["HeaderYearToken"]));
+            }
+        }
     }
 }

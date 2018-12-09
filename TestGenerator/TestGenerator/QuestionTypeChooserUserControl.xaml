@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TestGenerator"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0" Background="LightGray">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Background="LightGray">
         <CheckBox Name="cb" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
 		<Label Name="lbl" HorizontalAlignment="Left" VerticalAlignment="Center">
 			<Label.ToolTip>

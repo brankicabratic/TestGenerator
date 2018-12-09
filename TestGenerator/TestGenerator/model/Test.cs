@@ -16,9 +16,13 @@ namespace TestGenerator.model
 		public Test() { }
 
 		public bool OutputDocument(string headerTemplatePath, string footerTemplatePath, string outputPath)
-		{			
+		{
 			if (File.Exists(headerTemplatePath) && File.Exists(footerTemplatePath))
 			{
+				Questions = Questions.OrderBy(x => x.Type.Id).ToList();
+
+				int[] points = new int[Questions.Count];
+
 				DocX header, footer, doc;
 
 				try
@@ -31,11 +35,21 @@ namespace TestGenerator.model
 				{
 					return false;
 				}
-				
+
+				DateTime dt = DateTime.Now;
+				int year = dt.Month > 9 ? dt.Year : dt.Year - 1;
+				header.ReplaceText(Properties.Settings.Default.HeaderYearToken, year + "/" + (year + 1));
+
 				doc.InsertDocument(header);
 
+				int i = 1;
 				foreach (Question q in Questions)
-					doc.InsertDocument(q.Doc);
+				{
+					DocX questionDoc = q.Doc;
+					questionDoc.ReplaceText(Properties.Settings.Default.QuestionNumberToken, "" + i++);
+					questionDoc.ReplaceText(Properties.Settings.Default.QuestionPointsToken, "" + q.Type.Difficulty);
+					doc.InsertDocument(questionDoc);
+				}
 
 				doc.InsertDocument(footer);
 
