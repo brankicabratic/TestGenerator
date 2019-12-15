@@ -20,6 +20,7 @@ namespace TestGenerator.viewmodel
 				AllPatterns.Add(tp);
 			}
 			TestPatternPool.Instance.OnTestPatternAdded += (tp) => AllPatterns.Add(tp);
+			TestPatternPool.Instance.OnTestPatternDeleted += (tp) => AllPatterns.Remove(tp);
 		}
 	}
 }

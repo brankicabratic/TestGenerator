@@ -25,6 +25,7 @@ namespace TestGenerator.model
 		public List<TestPattern> Patterns = new List<TestPattern>();
 
 		public event Action<TestPattern> OnTestPatternAdded;
+		public event Action<TestPattern> OnTestPatternDeleted;
 
 		public TestPatternPool()
 		{
@@ -36,8 +37,21 @@ namespace TestGenerator.model
 
 		public void AddTestPattern(TestPattern testPattern)
 		{
-			Patterns.Add(testPattern);
-			OnTestPatternAdded(testPattern);
+			if (!Patterns.Contains(testPattern))
+			{
+				Patterns.Add(testPattern);
+				OnTestPatternAdded(testPattern);
+			}
+		}
+
+		public void DeleteTestPattern(TestPattern testPattern)
+		{
+			if (Patterns.Contains(testPattern))
+			{
+				Patterns.Remove(testPattern);
+				testPattern.Delete();
+				OnTestPatternDeleted(testPattern);
+			}
 		}
 
 		private TestPattern Load(String filename)
@@ -46,6 +60,7 @@ namespace TestGenerator.model
 			FileStream myFileStream = new FileStream(filename, FileMode.Open);
 			TestPattern testPattern = (TestPattern)mySerializer.Deserialize(myFileStream);
 			testPattern.OnDeserialized();
+			myFileStream.Close();
 			return testPattern;
 		}
 	}

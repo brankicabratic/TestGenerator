@@ -25,11 +25,14 @@ namespace TestGenerator
 
 		public QuestionTypeChooserUserControl(TestPattern testPattern, QuestionType questionType)
 		{
+			this.questionType = testPattern.GetQuestionType(questionType);
+			if (this.questionType == null)
+				this.questionType = new QuestionType(questionType.Id, questionType.Questions);
 			InitializeComponent();
 			cb.IsChecked = testPattern.ContainsQuestionType(questionType);
-			lbl.Content = questionType.Id;
-			tooltip.Text = questionType.GetPreview();
-			this.questionType = questionType;
+			lbl.Content = this.questionType.Id;
+			tbPoints.Text = this.questionType.Difficulty + "";
+			tooltip.Text = this.questionType.GetPreview();
 		}
 
 		public bool IsChecked()

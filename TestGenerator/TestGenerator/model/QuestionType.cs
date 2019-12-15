@@ -32,7 +32,7 @@ namespace TestGenerator.model
 			Questions = questions;
 		}
 
-		// previousQuestions must be sorted by increasing 
+		// previousQuestions must be sorted by increasing ...
 		public Question GetRandom(List<Question> previousQuestions)
 		{
 			List<Question> sortedQuestions = new List<Question>();
@@ -55,7 +55,8 @@ namespace TestGenerator.model
 
 			int nonHistoryQuestionsCount = sortedQuestions.Count - historyQuestionsCount;
 
-			double rnd = (new Random()).NextDouble() * (cumulativeProbability > 0 ? (nonHistoryQuestionsCount + 1) * cumulativeProbability : nonHistoryQuestionsCount);
+			double range = cumulativeProbability > 0 ? (nonHistoryQuestionsCount + 1) * cumulativeProbability : nonHistoryQuestionsCount;
+			double rnd = (new Random()).NextDouble() * range;
 			
 			double probability = 0;
 			for (int i = 0; i < sortedQuestions.Count; i++)

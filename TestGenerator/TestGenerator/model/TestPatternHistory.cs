@@ -28,6 +28,11 @@ namespace TestGenerator.model
 			return result;
 		}
 
+		public void Add(Test test)
+		{
+			Items.Add(new TestPatternHistoryItem(test));
+		}
+
 		public void OnDeserialized(QuestionPool pool)
 		{
 			foreach (TestPatternHistoryItem item in Items)

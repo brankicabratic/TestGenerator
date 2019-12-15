@@ -63,6 +63,9 @@
     <Compile Include="model\Messages.cs" />
     <Compile Include="model\QuestionPool.cs" />
     <Compile Include="model\TestPatternPool.cs" />
+    <Compile Include="UpdatePatternWindow.xaml.cs">
+      <DependentUpon>UpdatePatternWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewPatternWindow.xaml.cs">
       <DependentUpon>NewPatternWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UpdatePatternWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NewPatternWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

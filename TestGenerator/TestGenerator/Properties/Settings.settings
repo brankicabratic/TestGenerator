@@ -14,5 +14,14 @@
     <Setting Name="HeaderYearToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)">[YEAR]</Value>
     </Setting>
+    <Setting Name="FooterMaxPointsToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[MAX_POINTS]</Value>
+    </Setting>
+    <Setting Name="FooterDivPointsToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[DIV_POINTS]</Value>
+    </Setting>
+    <Setting Name="FooterRealPointsToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[REAL_POINTS]</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

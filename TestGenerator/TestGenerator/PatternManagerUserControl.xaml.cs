@@ -32,6 +32,10 @@ namespace TestGenerator
 			InitializeComponent();
 			this.testPattern = testPattern;
 			this.questionPool = questionPool;
+			tbName.Text = testPattern.Name;
+			tbHeaderTemplate.Text = testPattern.HeaderTemplatePath;
+			tbFooterTemplate.Text = testPattern.FooterTemplatePath;
+			tbPoints.Text = testPattern.Points + "";
 			addQuestionTypesControls();
 		}
 
@@ -90,7 +94,9 @@ namespace TestGenerator
 
 		private void addQuestionTypesControls()
 		{
-			foreach (QuestionType questionType in questionPool.GetQuestionTypes())
+			List<QuestionType> questionTypes = questionPool.GetQuestionTypes();
+			questionTypes.Sort((x, y) => { return x.Id - y.Id; });
+			foreach (QuestionType questionType in questionTypes)
 			{
 				QuestionTypeChooserUserControl questionTypeChooser = new QuestionTypeChooserUserControl(testPattern, questionType);
 				questionTypeChoosers.Add(questionTypeChooser);

@@ -58,5 +58,41 @@ namespace TestGenerator.Properties {
                 return ((string)(this["HeaderYearToken"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[MAX_POINTS]")]
+        public string FooterMaxPointsToken {
+            get {
+                return ((string)(this["FooterMaxPointsToken"]));
+            }
+            set {
+                this["FooterMaxPointsToken"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[DIV_POINTS]")]
+        public string FooterDivPointsToken {
+            get {
+                return ((string)(this["FooterDivPointsToken"]));
+            }
+            set {
+                this["FooterDivPointsToken"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[REAL_POINTS]")]
+        public string FooterRealPointsToken {
+            get {
+                return ((string)(this["FooterRealPointsToken"]));
+            }
+            set {
+                this["FooterRealPointsToken"] = value;
+            }
+        }
     }
 }

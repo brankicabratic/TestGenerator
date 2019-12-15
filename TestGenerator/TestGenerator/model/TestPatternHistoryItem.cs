@@ -13,6 +13,12 @@ namespace TestGenerator.model
 
 		public TestPatternHistoryItem() { }
 
+		public TestPatternHistoryItem(Test test)
+		{
+			Test = test;
+			Date = DateTime.Today;
+		}
+
 		public Question Get(QuestionType type)
 		{
 			return Test.Get(type);

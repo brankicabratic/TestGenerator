@@ -20,6 +20,11 @@ namespace TestGenerator.model
 		public QuestionTypesMatching Matching;
 		public TestPatternHistory History = new TestPatternHistory();
 
+		private string Filename
+		{
+			get { return Environment.CurrentDirectory + Path.DirectorySeparatorChar + Properties.Settings.Default.TestPatternsPath + Id + ".xml"; }
+		}
+
 		public TestPattern() { }
 
 		public TestPattern(int id, string questionsPath)
@@ -36,9 +41,14 @@ namespace TestGenerator.model
 		public void Save()
 		{
 			XmlSerializer ser = new XmlSerializer(typeof(TestPattern));
-			TextWriter writer = new StreamWriter(Environment.CurrentDirectory + Path.DirectorySeparatorChar + Properties.Settings.Default.TestPatternsPath + Id + ".xml");
+			TextWriter writer = new StreamWriter(Filename);
 			ser.Serialize(writer, this);
 			writer.Close();
+		}
+
+		public void Delete()
+		{
+			File.Delete(Filename);
 		}
 
 		public void OnDeserialized()
@@ -78,12 +88,25 @@ namespace TestGenerator.model
 				questionTypes.Remove(type);
 				test.AddQuestion(type.GetRandom(History.Get(type)));
 			}
+			History.Add(test);
+			Save();
 			return test;
 		}
 
 		public bool ContainsQuestionType(QuestionType questionType)
 		{
-			return QuestionTypes.Contains(questionType);
+			foreach (QuestionType q in QuestionTypes)
+				if (q.Id == questionType.Id)
+					return true;
+			return false;
+		}
+
+		public QuestionType GetQuestionType(QuestionType questionType)
+		{
+			foreach (QuestionType q in QuestionTypes)
+				if (q.Id == questionType.Id)
+					return q;
+			return null;
 		}
 
 		public override string ToString()

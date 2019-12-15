@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestGenerator"
 		xmlns:viewmodel="clr-namespace:TestGenerator.viewmodel"
         mc:Ignorable="d"
-        Title="Test Generator" Height="123.856" Width="323.693">
+        Title="Test Generator" Height="123.856" Width="495.027">
 	<Window.DataContext>
 		<viewmodel:MainWindowViewModel />
 	</Window.DataContext>
@@ -16,7 +16,10 @@
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" Margin="0,5">
 			<ComboBox Name="cbTestPatterns" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding AllPatterns}" Width="155"></ComboBox>
+			<TextBox Width="75" Name="tbPoints" Text="Insert points" VerticalAlignment="Center" HorizontalAlignment="Left" GotFocus="tbPoints_GotFocus" LostFocus="tbPoints_LostFocus" Height="23"></TextBox>
 			<Button Name="btnGenerateTest" Content="Generate" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="70" Click="btnGenerateTest_Click"></Button>
+			<Button Name="btnUpdateTest" Content="Update" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="70" Click="btnUpdateTest_Click"></Button>
+			<Button Name="btnDeleteTest" Content="Delete" Margin="5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="70" Click="btnDeleteTest_Click"></Button>
 		</StackPanel>
 
 	</StackPanel>
